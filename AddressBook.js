@@ -61,3 +61,24 @@ for (let i = 0; i < addressBook.length; i++) {
   console.log(`Email: ${addressBook[i].email}`);
   console.log("");
 }
+
+console.log("New AddressBook: ")
+let newAddressBook = [];
+// add a new contact to the new address book
+try {
+    newAddressBook.push(new Contact("Dhinchak", "Pooja", "Sch 140", "Mumbai", "MH", "400001", "7350985660", "dhinchakthegreatrapper@gmail.com"));
+  } catch (error) {
+    console.log(error.message);
+  }
+
+// display the contents of the new address book
+for (let i = 0; i < newAddressBook.length; i++) {
+    console.log(`Name: ${newAddressBook[i].firstName} ${newAddressBook[i].lastName}`);
+    console.log(`Address: ${newAddressBook[i].address}`);
+    console.log(`City: ${newAddressBook[i].city}`);
+    console.log(`State: ${newAddressBook[i].state}`);
+    console.log(`ZIP: ${newAddressBook[i].zip}`);
+    console.log(`Phone: ${newAddressBook[i].phone}`);
+    console.log(`Email: ${newAddressBook[i].email}`);
+    console.log("------------------------------");
+    }
