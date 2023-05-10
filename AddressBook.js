@@ -121,3 +121,32 @@ for (let i = 0; i < addressBook.length; i++) {
     console.log(`Email: ${addressBook[i].email}`);
     console.log("");
   }
+
+
+  // find the index of the contact to delete UC5
+function deleteContact(firstName, lastName) {
+
+    let index = findContactIndex(firstName, lastName);
+    
+    // if the contact is found, remove it from the address book array
+    if (index !== -1) {
+      addressBook.splice(index, 1);
+      console.log(`Contact ${firstName} ${lastName} has been deleted.`);
+    } else {
+      console.log(`Contact ${firstName} ${lastName} not found.`);
+    }
+  }
+  
+  deleteContact("Akhil", "Mondal");
+console.log("After Delete")
+// display the contents of the address book
+for (let i = 0; i < addressBook.length; i++) {
+    console.log(`Name: ${addressBook[i].firstName} ${addressBook[i].lastName}`);
+    console.log(`Address: ${addressBook[i].address}`);
+    console.log(`City: ${addressBook[i].city}`);
+    console.log(`State: ${addressBook[i].state}`);
+    console.log(`ZIP: ${addressBook[i].zip}`);
+    console.log(`Phone: ${addressBook[i].phone}`);
+    console.log(`Email: ${addressBook[i].email}`);
+    console.log("");
+  }
