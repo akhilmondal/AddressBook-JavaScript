@@ -67,9 +67,9 @@ let newAddressBook = [];
 // add a new contact to the new address book
 try {
     newAddressBook.push(new Contact("Dhinchak", "Pooja", "Sch 140", "Mumbai", "MH", "400001", "7350985660", "dhinchakthegreatrapper@gmail.com"));
-  } catch (error) {
-    console.log(error.message);
-  }
+} catch (error) {
+console.log(error.message);
+}
 
 // display the contents of the new address book
 for (let i = 0; i < newAddressBook.length; i++) {
@@ -81,4 +81,43 @@ for (let i = 0; i < newAddressBook.length; i++) {
     console.log(`Phone: ${newAddressBook[i].phone}`);
     console.log(`Email: ${newAddressBook[i].email}`);
     console.log("------------------------------");
+}
+
+// function to find a contact by first and last name and return its index in the address book array
+function findContactIndex(firstName, lastName) {
+    for (let i = 0; i < addressBook.length; i++) {
+      if (addressBook[i].firstName === firstName && addressBook[i].lastName === lastName) {
+        return i;
+      }
     }
+    return -1;
+}
+
+  // function to update an existing contact's information
+function updateContact(firstName, lastName, address, city, state, zip, phone, email) {
+    let index = findContactIndex(firstName, lastName);
+    if (index === -1) {
+        console.log("Contact not found.");
+        return;
+    }
+    try {
+        console.log("Contact Found")
+        addressBook[index] = new Contact(firstName, lastName, address, city, state, zip, phone, email);
+        console.log("Contact updated.");
+    } catch (error) {
+        console.log(error.message);
+    }
+}
+updateContact("Akhil","Mondal","mkgl","malkangiri","OD","768540","7749956784","guywewhbciuc@gmail.com");
+
+// display the contents of the address book
+for (let i = 0; i < addressBook.length; i++) {
+    console.log(`Name: ${addressBook[i].firstName} ${addressBook[i].lastName}`);
+    console.log(`Address: ${addressBook[i].address}`);
+    console.log(`City: ${addressBook[i].city}`);
+    console.log(`State: ${addressBook[i].state}`);
+    console.log(`ZIP: ${addressBook[i].zip}`);
+    console.log(`Phone: ${addressBook[i].phone}`);
+    console.log(`Email: ${addressBook[i].email}`);
+    console.log("");
+  }
